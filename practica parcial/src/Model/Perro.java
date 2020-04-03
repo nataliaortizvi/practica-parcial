@@ -9,7 +9,7 @@ public class Perro implements Comparable<Perro>{
 	
 	public Perro(String edad, String raza, String nom, String fecha, int id,PApplet app) {
 		this.app = app;
-		this.px = 50;
+		this.px = 40;
 		
 		this.edad = edad;
 		this.fecha = fecha;
@@ -20,19 +20,30 @@ public class Perro implements Comparable<Perro>{
 	}
 	
 	public void pintarTexto(int py, PApplet app) {
-		app.fill(0);
-		app.textSize(15);
+		app.fill(250);
+		app.noStroke();
+		app.rect(25,35,450,30);
 		
+		app.fill(60,123,130);
 		app.text("ID",40,55);
+		app.text("Nombre",90,55);
+		app.text("Edad",180,55);
+		app.text("Raza",260,55);
+		app.text("Fecha",410,55);
+		
+		app.fill(250);
+		app.textSize(15);
 		app.text(this.id, px, py);
-		app.text("NOMBRE",90,55);
 		app.text(this.nom, px + 50, py);
-		app.text("EDAD",180,55);
 		app.text(this.edad, px + 150, py);
-		app.text("RAZA",260,55);
 		app.text(this.raza, px + 210, py);
-		app.text("FECHA",410,55);
 		app.text(this.fecha,px + 350, py);
+		
+		app.text("Organizar ID: oprimir tecla i", 160,440);
+		app.text("Organizar Nombre: oprimir tecla n", 160,460);
+		app.text("Organizar Edad: oprimir tecla e", 160,480);
+		app.text("Organizar Raza: oprimir tecla r", 160,500);
+		app.text("Organizar Fecha: oprimir tecla f", 160,520);
 	}
 	
 	public int compareTo(Perro o) {

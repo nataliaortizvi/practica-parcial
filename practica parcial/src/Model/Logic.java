@@ -1,5 +1,8 @@
 package Model;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.Collections;
 import java.util.LinkedList;
 
@@ -64,11 +67,81 @@ public class Logic {
 	}
 	
 	public void sortList (char i) {
-		
-			Collections.sort(perros);
-	
+		switch (i) {
+ 		case 'i': 
+ 			//ordena el ID
+ 			Collections.sort(perros);
+ 			
+ 			try {
+ 				imprimir();
+ 			} catch (FileNotFoundException e) {
+ 				e.printStackTrace();
+ 			}
+ 			break;
+ 		case 'n':
+ 			//ordena el nombre
+ 			Collections.sort(perros, nom);
+ 			
+ 			try {
+ 				imprimir();
+ 			} catch (FileNotFoundException e) {
+ 				e.printStackTrace();
+ 			}
+ 			break;
+ 		case 'e':
+ 			//ordena la edad
+ 			Collections.sort(perros,edad);
+ 			
+ 			try {
+ 				imprimir();
+ 			} catch (FileNotFoundException e) {
+ 				e.printStackTrace();
+ 			}
+ 			break;
+ 		case 'r':
+ 			//ordena la edad
+ 			Collections.sort(perros,raza);
+ 			
+ 			try {
+ 				imprimir();
+ 			} catch (FileNotFoundException e) {
+ 				e.printStackTrace();
+ 			}
+ 			break;
+ 		case 'f':
+ 			//ordena la edad
+ 			Collections.sort(perros,fecha);
+ 			
+ 			try {
+ 				imprimir();
+ 			} catch (FileNotFoundException e) {
+ 				e.printStackTrace();
+ 			}
+ 			break;
+ 		}
 	}
 	
+	public void imprimir() throws FileNotFoundException {
+		PrintWriter p = new PrintWriter(new File("lib/exports/datosNuevo.txt"));
+		p.print(mensaje());
+		p.close();
+	}
+
+	private String mensaje() {
+		String m = "";
+		
+		for(int i=0; i<perros.size(); i++) {
+			Perro pe = perros.get(i);
+			
+			String mesage = pe.getId()+ " " + pe.getNom().toLowerCase()+ pe.getFecha()
+			+ " " + pe.getRaza().toLowerCase() + " " + pe.getEdad();
+			
+			m += mesage + "\n";
+		}
+		
+		return m;
+	}
+
 	
 	
 	

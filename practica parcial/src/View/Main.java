@@ -22,17 +22,15 @@ public class Main extends PApplet {
 	}
 	
 	public void draw() {
-		background(160,223,230);
+		background(60,123,130);
 		
 		fill(0);
 		for(int i=0; i < controllerM.perrito().size(); i++) {
 			controllerM.perrito().get(i).pintarTexto((i*(30))+100, this);
 		}
-		
 	}
 	
 	public void keyPressed() {
 		controllerM.sortListControl(key);
 	}
-
 }
