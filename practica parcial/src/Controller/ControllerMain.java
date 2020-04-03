@@ -16,6 +16,10 @@ public class ControllerMain {
 	public LinkedList<Perro> perrito(){
 		return logica.getPerros();
 		}
+	
+	public void sortListControl(char i) {
+		logica.sortList(i);
+	}
 		
 	}
 	
